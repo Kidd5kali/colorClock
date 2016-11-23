@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Kidd5kali (http://jsbin.com/nujebis/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Kanit:500" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>színes óra</title>
+<style id="jsbin-css">
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  margin-top: -40px;
+  font-size: 80px;
+  font-family: 'Kanit', sans-serif;
+}
+</style>
+</head>
+<body>
+<div id="clock"></div>
+<script id="jsbin-javascript">
+function colorClock(){
+var date = new Date();
+  
+var hours = date.getHours(); 
+  
+if (hours <10) {
+  seconds = '0' + hours;
+}
+var minutes = date.getMinutes();
+  
+if (minutes <10) {
+  minutes = '0' + minutes;
+}
+var seconds = date.getSeconds();
+  
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+  
+var clockFace = hours + ' ˇ ' + minutes+ ' ˇ ' +seconds;
+var hexColor = '#' + hours + minutes + seconds;
+  
+document.getElementById('clock').innerHTML = clockFace;
+  setTimeout(function(){
+    colorClock();
+  }, 1000);
+  document.body.style.background = hexColor;
+}
+colorClock();
+</script>
+</body>
+</html>
